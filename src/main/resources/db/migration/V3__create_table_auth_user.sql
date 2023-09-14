@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS auth_users (
+   id uuid PRIMARY KEY,
+   email VARCHAR(64) NOT NULL UNIQUE,
+   secret VARCHAR(255) NOT NULL
+);

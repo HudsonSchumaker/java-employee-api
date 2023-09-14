@@ -1,0 +1,1 @@
+INSERT INTO auth_users(id, email, secret) VALUES (gen_random_uuid(),'alfred@jloa.com', '$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.');
