@@ -6,7 +6,6 @@ import com.schumaker.api.employee.exception.EmployeeNotFoundException;
 import com.schumaker.api.employee.model.repository.EmployeeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -58,9 +57,7 @@ public class EmployeeService {
         actualEmployee.setDateOfBirth(employee.getDateOfBirth());
         actualEmployee.setUpdatedOn(LocalDateTime.now());
 
-        actualEmployee.getHobbies().forEach(hobby -> {
-            hobbyService.delete(hobby.getId());
-        });
+        actualEmployee.getHobbies().forEach(hobby -> hobbyService.delete(hobby.getId()));
 
         actualEmployee.setHobbies(employee.getHobbies());
         actualEmployee.getHobbies().forEach(hobby -> hobby.setEmployee(actualEmployee));

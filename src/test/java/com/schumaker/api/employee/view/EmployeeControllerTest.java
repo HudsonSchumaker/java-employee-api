@@ -66,8 +66,6 @@ public class EmployeeControllerTest {
 
     ObjectMapper objectMapper;
 
-    String token;
-
     @BeforeEach
     void setUp() {
         objectMapper = new ObjectMapper();

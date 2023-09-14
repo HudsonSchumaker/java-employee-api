@@ -83,7 +83,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldCreateEmployee() throws Exception {
+    void shouldCreateEmployee() {
         HobbyForm bjj = new HobbyForm();
         bjj.setName("bjj");
 
@@ -117,7 +117,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldCreateAndUpdateEmployee() throws Exception {
+    void shouldCreateAndUpdateEmployee() {
         EmployeeForm employeeForm = new EmployeeForm();
         employeeForm.setEmail("aquaman@jloa.com");
         employeeForm.setFullName("Orin Arthur Curry");
@@ -146,7 +146,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldCreateAndUpdateEmployeeHobbies() throws Exception {
+    void shouldCreateAndUpdateEmployeeHobbies() {
         HobbyForm bjj = new HobbyForm();
         bjj.setName("bjj");
 
@@ -197,7 +197,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldCreateAndUpdateEmployeeRemoveHobbies() throws Exception {
+    void shouldCreateAndUpdateEmployeeRemoveHobbies() {
         HobbyForm bjj = new HobbyForm();
         bjj.setName("bjj");
 
@@ -218,7 +218,6 @@ public class EmployeeServiceIT {
         Assertions.assertEquals(created.getFullName(), employeeForm.getFullName());
         Assertions.assertEquals(created.getDateOfBirth(), employeeForm.getDateOfBirth());
 
-
         EmployeeForm employeeUpdateForm = new EmployeeForm();
         employeeUpdateForm.setEmail("aquaman@jloa.com");
         employeeUpdateForm.setFullName("Arthur Curry");
@@ -235,7 +234,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldNotCreateWithExistingEmail() throws Exception {
+    void shouldNotCreateWithExistingEmail() {
         List<Employee> employees = EmployeeHelper.getEmployeeList();
         employeeRepository.saveAll(employees);
 
@@ -251,7 +250,7 @@ public class EmployeeServiceIT {
     }
 
     @Test
-    void shouldNotUpdateWithExistingEmail() throws Exception {
+    void shouldNotUpdateWithExistingEmail() {
         List<Employee> employees = EmployeeHelper.getEmployeeList();
         employeeRepository.saveAll(employees);
 
@@ -270,7 +269,7 @@ public class EmployeeServiceIT {
 
         var employeeUpdate = modelMapper.map(employeeUpdateForm, Employee.class);
         assertThrows(EmailAlreadyExistsException.class, () -> {
-            var updated = employeeService.update(created.getId(), employeeUpdate);
+            employeeService.update(created.getId(), employeeUpdate);
         });
     }
 

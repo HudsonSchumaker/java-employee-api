@@ -14,7 +14,7 @@ public class EventPublishService {
     private final RabbitTemplate rabbitTemplate;
 
     @Autowired
-    public EventPublishService(RabbitTemplate rabbitTemplate, ModelMapper modelMapper) {
+    public EventPublishService(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
