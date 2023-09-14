@@ -3,7 +3,6 @@ package com.schumaker.api.employee.service;
 import com.schumaker.api.employee.view.dto.EmployeeDTO;
 import com.schumaker.api.employee.view.dto.EmployeeEvent;
 import com.schumaker.api.employee.model.enumeration.EmployeeEventType;
-import org.modelmapper.ModelMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

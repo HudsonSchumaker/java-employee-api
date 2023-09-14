@@ -7,6 +7,7 @@ import org.modelmapper.config.Configuration.AccessLevel;
 
 @Configuration
 public class ApiConfiguration {
+
     @Bean
     public ModelMapper getModelMapper() {
         ModelMapper mapper = new ModelMapper();
