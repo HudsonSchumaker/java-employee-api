@@ -127,10 +127,10 @@ public class EmployeeControllerTest {
         mockMvc.perform(post("/employees")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.fullName", is(form.getFullName())))
-                .andExpect(jsonPath("$.email", is(form.getEmail())))
-                .andDo(print());
+                        .andExpect(status().isCreated())
+                        .andExpect(jsonPath("$.fullName", is(form.getFullName())))
+                        .andExpect(jsonPath("$.email", is(form.getEmail())))
+                        .andDo(print());
 
         verify(service).create(employee);
         verify(eventPublishService).publishEvent(EmployeeEventType.CREATED, employeeDTO);
@@ -152,9 +152,9 @@ public class EmployeeControllerTest {
         mockMvc.perform(put("/employees/{id}", employee.getId())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
-                .andExpect(status().isAccepted())
-                .andExpect(jsonPath("$.dateOfBirth", is("1966-01-01")))
-                .andDo(print());
+                        .andExpect(status().isAccepted())
+                        .andExpect(jsonPath("$.dateOfBirth", is("1966-01-01")))
+                        .andDo(print());
 
         verify(service).update(employee.getId(), employee);
         verify(eventPublishService).publishEvent(EmployeeEventType.UPDATED, employeeDTO);
@@ -198,10 +198,10 @@ public class EmployeeControllerTest {
         mockMvc.perform(post("/employees")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(form)))
-                .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$[0].field", is("fullName")))
-                .andExpect(jsonPath("$[0].error", is("must not be blank")))
-                .andDo(print());
+                        .andExpect(status().isBadRequest())
+                        .andExpect(jsonPath("$[0].field", is("fullName")))
+                        .andExpect(jsonPath("$[0].error", is("must not be blank")))
+                        .andDo(print());
     }
 
     @Test
@@ -217,7 +217,7 @@ public class EmployeeControllerTest {
         mockMvc.perform(put("/employees/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(form)))
-                .andExpect(status().isNotFound())
-                .andDo(print());
+                        .andExpect(status().isNotFound())
+                        .andDo(print());
     }
 }
