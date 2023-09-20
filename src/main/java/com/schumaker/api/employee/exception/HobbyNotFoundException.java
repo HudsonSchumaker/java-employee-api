@@ -7,4 +7,3 @@ public class HobbyNotFoundException extends RuntimeException {
         super(MESSAGE);
     }
 }
-
