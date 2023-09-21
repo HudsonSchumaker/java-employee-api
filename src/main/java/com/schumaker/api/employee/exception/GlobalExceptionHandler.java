@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestControllerAdvice
-public final class GlobalExceptionHandler {
+public final class GlobalExceptionHandler { // extends ResponseEntityExceptionHandler
 
     @Autowired
     private MessageSource messageSource;
