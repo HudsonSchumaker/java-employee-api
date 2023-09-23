@@ -76,7 +76,7 @@ public class EmployeeControllerTest {
     @Test
     void listTest() throws Exception {
         Pageable pagination = Pageable.ofSize(10);
-        List<Employee> list  = EmployeeHelper.getEmployeeList();
+        List<Employee> list = EmployeeHelper.getEmployeeList();
         Page<Employee> employees = new PageImpl<>(list);
 
         when(service.list(pagination)).thenReturn(employees);
