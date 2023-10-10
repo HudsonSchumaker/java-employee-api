@@ -21,7 +21,7 @@ docker run -d -ti -v pgdata:/var/lib/postgresql15/data -p 5432:5432 -e POSTGRES_
 docker run -d -ti -p 5672:5672 -p 15672:15672 -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest rabbitmq:3.8-management-alpine
 ```
 
-After the application starts, you can view the Swagger documentation at the following URL:
+After the application starts, you will be able to  see the Swagger documentation at the following URL:
 http://localhost:8080/employee-api/swagger-ui/index.html
 
 To create, update, or delete an employee, you will need a Bearer token. You can generate a token at the following URL:
