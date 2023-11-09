@@ -20,7 +20,7 @@ public class SwaggerConfig {
                         .info(new Info().title("Employee REST API")
                         .description("Employee API.")
                         .version("1.0").contact(new Contact().name("Hudson Schumaker")
-                        .email("hudson.schumaker@me.com")));
+                        .email("xyz@xyz.com")));
     }
 
     private SecurityScheme createAPIKeyScheme() {
